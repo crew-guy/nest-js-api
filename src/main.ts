@@ -1,7 +1,7 @@
 // To run app in dev- npm run start:dev
 // To fix linting - npm run lint --fix
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app/app.module';
+import { NestFactory } from "@nestjs/core";
+import { AppModule } from "./app/app.module";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
