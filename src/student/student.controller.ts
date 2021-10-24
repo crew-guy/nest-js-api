@@ -3,7 +3,7 @@ import {
   CreateStudentDto,
   FindStudentResponseDto,
   StudentResponseDto,
-  UpdateStudentDto,
+  UpdateStudentDto
 } from "./student.dto";
 
 @Controller("students")
@@ -14,8 +14,8 @@ export class StudentController {
       {
         name: "",
         id: "",
-        teacher: "",
-      },
+        teacher: ""
+      }
     ];
   }
   @Get("/:studentId")
@@ -25,7 +25,7 @@ export class StudentController {
     return {
       name: "",
       id: "",
-      teacher: "",
+      teacher: ""
     };
   }
   @Post()
@@ -35,7 +35,7 @@ export class StudentController {
     return {
       name: "",
       id: "",
-      teacher: "",
+      teacher: ""
     };
   }
   @Put("/:studentId")
@@ -49,7 +49,7 @@ export class StudentController {
     return {
       name: "",
       id: "",
-      teacher: "",
+      teacher: ""
     };
   }
 }
