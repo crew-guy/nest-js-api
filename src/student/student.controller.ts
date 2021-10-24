@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put } from '@nestjs/common';
+import { Controller, Get, Param, Post, Put } from '@nestjs/common';
 
 @Controller('students')
 export class StudentController {
@@ -7,8 +7,9 @@ export class StudentController {
     return 'All students';
   }
   @Get('/:studentId')
-  getStudentById() {
-    return 'got student by id';
+  getStudentById(@Param('studentId') studentId: string) {
+    console.log(studentId);
+    return `got student by id ${studentId}`;
   }
   @Post()
   createStudent() {
