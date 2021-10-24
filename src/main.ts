@@ -1,3 +1,5 @@
+// To run app in dev- npm run start:dev
+// To fix linting - npm run lint --fix
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 
