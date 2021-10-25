@@ -1,3 +1,4 @@
+import { StudentService } from "./student.service";
 import { Body, Controller, Get, Param, Post, Put } from "@nestjs/common";
 import {
   CreateStudentDto,
@@ -8,15 +9,11 @@ import {
 
 @Controller("students")
 export class StudentController {
+  constructor(private readonly studentService: StudentService) {}
+
   @Get()
   getStudents(): FindStudentResponseDto[] {
-    return [
-      {
-        name: "",
-        id: "",
-        teacher: ""
-      }
-    ];
+    return this.studentService.getStudents();
   }
   @Get("/:studentId")
   // name inside @Param("name") should match the exact param name in the endpoint being hit
