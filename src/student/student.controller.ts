@@ -19,21 +19,13 @@ export class StudentController {
   // name inside @Param("name") should match the exact param name in the endpoint being hit
   getStudentById(@Param("studentId") sid: string): FindStudentResponseDto {
     console.log(`got student by id ${sid}`);
-    return {
-      name: "",
-      id: "",
-      teacher: ""
-    };
+    return this.studentService.getStudentById(sid);
   }
   @Post()
   createStudent(@Body() body: CreateStudentDto): StudentResponseDto {
     console.log(body);
     console.log(`creating student ${JSON.stringify(body)}`);
-    return {
-      name: "",
-      id: "",
-      teacher: ""
-    };
+    return this.studentService.createStudent(body);
   }
   @Put("/:studentId")
   updateStudentById(
@@ -43,10 +35,6 @@ export class StudentController {
     console.log(
       `updating student at id ${studentId} with body ${JSON.stringify(body)} `
     );
-    return {
-      name: "",
-      id: "",
-      teacher: ""
-    };
+    return this.studentService.updateStudent(studentId, body);
   }
 }
