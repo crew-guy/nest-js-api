@@ -1,5 +1,13 @@
 import { StudentService } from "./student.service";
-import { Body, Controller, Get, Param, Post, Put } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  ParseUUIDPipe,
+  Post,
+  Put
+} from "@nestjs/common";
 import {
   CreateStudentDto,
   FindStudentResponseDto,
@@ -17,7 +25,9 @@ export class StudentController {
   }
   @Get("/:studentId")
   // name inside @Param("name") should match the exact param name in the endpoint being hit
-  getStudentById(@Param("studentId") sid: string): FindStudentResponseDto {
+  getStudentById(
+    @Param("studentId", new ParseUUIDPipe()) sid: string
+  ): FindStudentResponseDto {
     console.log(`got student by id ${sid}`);
     return this.studentService.getStudentById(sid);
   }
@@ -29,7 +39,7 @@ export class StudentController {
   }
   @Put("/:studentId")
   updateStudentById(
-    @Param("/:studentId") studentId: string,
+    @Param("/:studentId", new ParseUUIDPipe()) studentId: string,
     @Body() body: UpdateStudentDto
   ): StudentResponseDto {
     console.log(
