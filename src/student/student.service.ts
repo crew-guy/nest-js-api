@@ -21,21 +21,21 @@ export class StudentService {
     return student;
   }
 
-  createStudent(body: CreateStudentDto): StudentResponseDto {
+  createStudent(payload: CreateStudentDto): StudentResponseDto {
     const student = {
       id: v4(),
-      ...body
+      ...payload
     };
     students.push(student);
     return student;
   }
 
-  updateStudent(id: string, body: UpdateStudentDto): StudentResponseDto {
+  updateStudent(id: string, payload: UpdateStudentDto): StudentResponseDto {
     let student = this.students.find((student) => (student.id = id));
     this.students.filter((student) => student.id !== id);
     student = {
       ...student,
-      ...body
+      ...payload
     };
     this.students.push(student);
     return student;
