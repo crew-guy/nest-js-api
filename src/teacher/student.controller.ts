@@ -6,7 +6,6 @@ import {
   Param,
   ParseUUIDPipe
 } from "@nestjs/common";
-import { students } from "src/db";
 import { FindStudentResponseDto } from "src/student/student.dto";
 import { StudentService } from "src/student/student.service";
 

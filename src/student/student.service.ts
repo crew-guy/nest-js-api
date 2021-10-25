@@ -54,6 +54,7 @@ export class StudentService {
     this.students.filter((student) => student.id !== studentId);
     student = {
       ...student,
+      ...payload,
       teacher: teacherId
     };
     this.students.push(student);
