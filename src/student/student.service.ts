@@ -40,4 +40,23 @@ export class StudentService {
     this.students.push(student);
     return student;
   }
+
+  getStudentsOfTeacher(teacherId: string): FindStudentResponseDto[] {
+    return this.students.filter((student) => student.teacher === teacherId);
+  }
+
+  changeStudentTeacher(
+    teacherId: string,
+    studentId: string,
+    payload: UpdateStudentDto
+  ): StudentResponseDto {
+    let student = this.students.find((student) => (student.id = studentId));
+    this.students.filter((student) => student.id !== studentId);
+    student = {
+      ...student,
+      teacher: teacherId
+    };
+    this.students.push(student);
+    return student;
+  }
 }

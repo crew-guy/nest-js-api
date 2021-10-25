@@ -10,6 +10,6 @@ export class TeacherController {
   }
   @Get("/:teacherId")
   getTeacherById(@Param("teacherId") teacherId: string) {
-    return `get teacher at id ${teacherId}`;
+    return this.teacherService.getTeacherById(teacherId);
   }
 }
